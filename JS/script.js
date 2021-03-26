@@ -1,4 +1,3 @@
-
 //Loader
 const textureLoader = new THREE.TextureLoader()
 const normalTexture = textureLoader.load('/Images/NormalMap.png')
@@ -12,13 +11,13 @@ const canvas = document.querySelector('canvas.webgl')
 const scene = new THREE.Scene()
 
 // Objects
-const geometry = new THREE.SphereBufferGeometry(1, 64, 64)
+const geometry = new THREE.SphereBufferGeometry(0.9, 64, 64)
 
 // Materials
 
 const material = new THREE.MeshStandardMaterial()
 material.metalness = .5
-material.roughness = .4
+material.roughness = .6
 material.normalMap = normalTexture
 
 material.color = new THREE.Color(0x292929)
@@ -30,7 +29,7 @@ scene.add(sphere)
 // Lights
 
 //Light1
-const pointLight = new THREE.PointLight(0xffffff, 0.1)
+const pointLight = new THREE.PointLight(0xffffff, 0.5)
 pointLight.position.x = 0.74
 pointLight.position.y = 0.95
 pointLight.position.z = -1.78
@@ -38,9 +37,9 @@ pointLight.intensity = 0.2
 scene.add(pointLight)
 
 //Light2
-const pointLight2 = new THREE.PointLight(0xff0000, 1)
+const pointLight2 = new THREE.PointLight(0xff0000, 1.5)
 pointLight2.position.set(-3.68, -3, -2.17)
-pointLight2.intensity = .3
+pointLight2.intensity = .5
 
 scene.add(pointLight2)
 
@@ -150,6 +149,7 @@ function onDocumentMouseMove(event) {
 }
 
 const parallaxSphere = (event) => {
+
     sphere.position.y = window.scrollY * .001
 }
 window.addEventListener('scroll', parallaxSphere)
@@ -167,7 +167,7 @@ const tick = () => {
 
     sphere.rotation.y += .5 * (targetX - sphere.rotation.y)
     sphere.rotation.x += .04 * (targetY - sphere.rotation.x)
-    sphere.position.z += -.05 * (targetY - sphere.rotation.x)
+    sphere.position.z += -.03 * (targetY - sphere.rotation.x)
 
     // Update Orbital Controls
     // controls.update()
