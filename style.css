@@ -9,8 +9,12 @@
             background: rgb(30, 30, 30);
         }
         
-        header {
-            position: absolute;
+        body {
+            overflow-x: hidden;
+        }
+        
+        .main {
+            width: 100%;
         }
         
         .menu {
@@ -37,17 +41,21 @@
             color: rgb(60, 201, 47);
         }
         
-        .webgl {
-            position: absolute;
+        .sec {
+            height: 100vh
+        }
+        
+        .canv {
             top: 0;
             left: 0;
             outline: none;
+            position: absolute;
         }
         
         .container {
             display: flex;
             justify-content: center;
-            padding-top: 80px;
+            padding-top: 100px;
         }
         
         h1 {
@@ -55,6 +63,33 @@
             font-size: 8rem;
             text-transform: uppercase;
             z-index: 5;
+        }
+        
+        @media only screen and (max-width:1800px) {
+            h1 {
+                font-size: 6rem;
+            }
+        }
+        
+        @media only screen and (max-width:1500px) {
+            h1 {
+                font-size: 5rem;
+            }
+        }
+        
+        @media only screen and (max-width:850px) {
+            h1 {
+                font-size: 3rem;
+            }
+            .webgl {
+                top: 50px
+            }
+        }
+        
+        @media only screen and (max-width:550px) {
+            h1 {
+                font-size: 2rem;
+            }
         }
         
         section {
